@@ -1,8 +1,6 @@
 
 #### 验证中国大陆身份证号码是否合法的函数 ####
 
-# 用法
-# sapply(x, fun_idno_verify, USE.NAMES = FALSE)
 
 fun_idno_verify <- function(x){
   
@@ -82,4 +80,10 @@ fun_idno_verify <- function(x){
   # 校验省份证号码第18位（数字），是否与计算余数后对应的校验码是否相等
   return(id_18 == check_code[remainder+1])
 
+}
+
+
+#### 向量化 ####
+vectorize_fun_idno_verify <- function(y) {
+  sapply(y, fun_idno_verify, USE.NAMES = FALSE)
 }
